@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://ic0rnbqhpe38"]
+
+[ext_resource type="Script" path="res://scenes/ui_components/ui_component_slider.gd" id="1_e0dgg"]
+
+[node name="SliderComponent" type="HBoxContainer"]
+script = ExtResource("1_e0dgg")
+
+[node name="MinusBtn" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "-"
+
+[node name="HSlider" type="HSlider" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PlusBtn" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "+"
+
+[node name="ProcentLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="MinusBtn" to="." method="_on_minus_btn_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="PlusBtn" to="." method="_on_plus_btn_pressed"]

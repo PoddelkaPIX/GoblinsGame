@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7nbxef2pia0f"]
+
+[ext_resource type="Script" path="res://scenes/screens/screen_main_menu.gd" id="1_5ihgb"]
+[ext_resource type="PackedScene" uid="uid://yenoi7637kk0" path="res://scenes/ui_components/ui_button.tscn" id="2_8i06i"]
+[ext_resource type="Texture2D" uid="uid://uulk7hh0wl15" path="res://assets/images/красивые-картинки-art-Dan-Zhao-4428510.jpeg" id="2_l7i1n"]
+[ext_resource type="AudioStream" uid="uid://bcqru68d2mttw" path="res://assets/audio/Halo 3 — Halo 3 Main Menu Music (www.lightaudio.ru).mp3" id="4_y7n0a"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_5ihgb")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_l7i1n")
+
+[node name="Container" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_right = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Main" type="MarginContainer" parent="Container"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/Main"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="MarginContainer2" type="MarginContainer" parent="Container/Main/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 60
+
+[node name="Label" type="Label" parent="Container/Main/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 136
+text = "Goblins"
+
+[node name="PlayGame" parent="Container/Main/VBoxContainer" instance=ExtResource("2_8i06i")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../MarginContainer/Exit")
+theme_override_font_sizes/font_size = 66
+text = "PLAY"
+flat = true
+
+[node name="Settings" parent="Container/Main/VBoxContainer" instance=ExtResource("2_8i06i")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 66
+text = "SETTINGS"
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/Main/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Exit" parent="Container/Main/VBoxContainer/MarginContainer" instance=ExtResource("2_8i06i")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../PlayGame")
+theme_override_font_sizes/font_size = 66
+text = "EXIT"
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_y7n0a")
+parameters/looping = true
+
+[connection signal="pressed" from="Container/Main/VBoxContainer/PlayGame" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="Container/Main/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Container/Main/VBoxContainer/MarginContainer/Exit" to="." method="_on_exit_pressed"]

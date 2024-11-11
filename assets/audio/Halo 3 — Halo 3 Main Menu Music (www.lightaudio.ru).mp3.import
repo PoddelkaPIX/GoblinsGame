@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcqru68d2mttw"
+path="res://.godot/imported/Halo 3 — Halo 3 Main Menu Music (www.lightaudio.ru).mp3-35900bcdb5d90fdb0ca903868638b48d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Halo 3 — Halo 3 Main Menu Music (www.lightaudio.ru).mp3"
+dest_files=["res://.godot/imported/Halo 3 — Halo 3 Main Menu Music (www.lightaudio.ru).mp3-35900bcdb5d90fdb0ca903868638b48d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

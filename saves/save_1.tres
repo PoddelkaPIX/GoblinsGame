@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GameSessionData" load_steps=5 format=3 uid="uid://dmuokd3j1tilp"]
+
+[ext_resource type="PackedScene" uid="uid://whdyur8k20cv" path="res://scenes/missions/mission_1_tutorial.tscn" id="1_3fou6"]
+[ext_resource type="Script" path="res://scripts/resources/data_story_mission.gd" id="1_plklc"]
+[ext_resource type="Script" path="res://scripts/resources/data_game_session.gd" id="2_2ukhk"]
+
+[sub_resource type="Resource" id="Resource_u5p71"]
+script = ExtResource("1_plklc")
+quests = Array[Resource("res://scripts/system_quest.gd")]([])
+scene = ExtResource("1_3fou6")
+
+[resource]
+script = ExtResource("2_2ukhk")
+mission_data = SubResource("Resource_u5p71")

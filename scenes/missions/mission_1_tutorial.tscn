@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://whdyur8k20cv"]
+
+[ext_resource type="PackedScene" uid="uid://cg2vki0s4udxp" path="res://scenes/missions/_base_mission.tscn" id="1_5l606"]
+[ext_resource type="PackedScene" uid="uid://dowl7b5in52c1" path="res://scenes/maps/map_home_in_forest.tscn" id="2_fmjwc"]
+[ext_resource type="Script" path="res://scripts/resources/data_quest.gd" id="3_hxksc"]
+[ext_resource type="Resource" uid="uid://c5m68u58uewav" path="res://resources/quests/quest_сhop_wood.tres" id="3_x44pf"]
+[ext_resource type="PackedScene" uid="uid://4w5y5eio260f" path="res://scenes/characters/character_fate.tscn" id="5_jjbsy"]
+
+[node name="Mission_1_Tutorial" instance=ExtResource("1_5l606")]
+
+[node name="QuestManager" parent="." index="0"]
+quests = Array[ExtResource("3_hxksc")]([ExtResource("3_x44pf")])
+
+[node name="MainCamera" parent="." index="1" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 1.0504, 6, 2.1418)
+target = NodePath("../MapHomeInForest/Characters/CharacterFate")
+
+[node name="MapHomeInForest" parent="." index="3" instance=ExtResource("2_fmjwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.365602, 0, 0)
+
+[node name="Walls" parent="MapHomeInForest" index="0"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="Grounds" parent="MapHomeInForest" index="1"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="Props" parent="MapHomeInForest" index="2"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="CharacterFate" parent="MapHomeInForest/Characters" index="0" instance=ExtResource("5_jjbsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 5.0298)
+
+[node name="WorldEnvironment" parent="MapHomeInForest" index="5"]
+camera_attributes = null
+
+[editable path="MapHomeInForest"]

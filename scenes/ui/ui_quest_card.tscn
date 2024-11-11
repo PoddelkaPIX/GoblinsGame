@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://co8ylwx4q4r2i"]
+
+[ext_resource type="Script" path="res://scenes/ui/ui_quest_card.gd" id="1_qfu7h"]
+
+[node name="QuestCard" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 54.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_qfu7h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="QuestName" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "Quest name"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="ConditionContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Button" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

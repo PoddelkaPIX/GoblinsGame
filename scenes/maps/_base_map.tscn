@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3d6crl6772xm"]
+
+[ext_resource type="Script" path="res://scripts/system/system_map.gd" id="1_0uqj1"]
+[ext_resource type="Script" path="res://scripts/system/system_quest_manager.gd" id="2_nxdly"]
+[ext_resource type="PackedScene" uid="uid://d1xkn4bh2nrd5" path="res://scenes/system/system_main_camera.tscn" id="3_qh7gd"]
+[ext_resource type="Script" path="res://scripts/system/system_cursor_3d.gd" id="4_ebyjt"]
+[ext_resource type="PackedScene" uid="uid://5g33gfmnxhl7" path="res://scenes/screens/modal_escape_menu.tscn" id="5_feng3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31by6"]
+
+[sub_resource type="Sky" id="Sky_0ghte"]
+sky_material = SubResource("ProceduralSkyMaterial_31by6")
+
+[sub_resource type="Environment" id="Environment_rsh2k"]
+background_mode = 2
+sky = SubResource("Sky_0ghte")
+volumetric_fog_density = 0.09
+volumetric_fog_anisotropy = 0.77
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_k4d1g"]
+dof_blur_far_distance = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_g56qf"]
+radius = 0.1
+height = 0.05
+
+[node name="BaseMap" type="Node3D"]
+script = ExtResource("1_0uqj1")
+
+[node name="QuestManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_nxdly")
+
+[node name="Walls" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Grounds" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Props" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Characters" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="InteractiveObjects" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rsh2k")
+camera_attributes = SubResource("CameraAttributesPractical_k4d1g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.843588, 0.524772, -0.113901, 0, 0.212109, 0.977246, 0.536991, -0.824393, 0.178933, 0, 0, 0)
+
+[node name="Cursor3D" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_ebyjt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cursor3D"]
+mesh = SubResource("SphereMesh_g56qf")
+
+[node name="EscapeMenu" parent="." instance=ExtResource("5_feng3")]
+
+[node name="MainCamera" parent="." instance=ExtResource("3_qh7gd")]
+unique_name_in_owner = true

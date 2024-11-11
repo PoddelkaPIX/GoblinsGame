@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4b3rai8d4670"]
+
+[ext_resource type="PackedScene" uid="uid://cg2vki0s4udxp" path="res://scenes/missions/_base_mission.tscn" id="1_yodmm"]
+[ext_resource type="Script" path="res://scripts/resources/data_quest.gd" id="2_faids"]
+[ext_resource type="PackedScene" uid="uid://xdps6qgkxwwv" path="res://scenes/maps/map_test_room.tscn" id="2_p46sg"]
+[ext_resource type="Resource" uid="uid://c5m68u58uewav" path="res://resources/quests/quest_сhop_wood.tres" id="3_0abnf"]
+[ext_resource type="PackedScene" uid="uid://4w5y5eio260f" path="res://scenes/characters/character_fate.tscn" id="3_shqm0"]
+[ext_resource type="PackedScene" uid="uid://ewr2h4gwwwr1" path="res://scenes/ui/ui_quest_list.tscn" id="6_btj6y"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3grps"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 8.0
+dof_blur_far_transition = -1.0
+
+[node name="Mission_0" instance=ExtResource("1_yodmm")]
+
+[node name="QuestManager" parent="." index="0"]
+quests = Array[ExtResource("2_faids")]([ExtResource("3_0abnf")])
+
+[node name="MainCamera" parent="." index="1" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 8, 3)
+indent = Vector3(0, 8, 3)
+target = NodePath("../Map/Characters/CharacterFate")
+
+[node name="Map" parent="." index="3" instance=ExtResource("2_p46sg")]
+
+[node name="CharacterFate" parent="Map/Characters" index="0" instance=ExtResource("3_shqm0")]
+
+[node name="WorldEnvironment" parent="Map" index="5"]
+camera_attributes = SubResource("CameraAttributesPractical_3grps")
+
+[node name="QuestList" parent="." index="4" instance=ExtResource("6_btj6y")]
+script = null
+
+[editable path="Map"]

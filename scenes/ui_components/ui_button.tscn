@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://yenoi7637kk0"]
+
+[ext_resource type="Script" path="res://scenes/ui_components/ui_button.gd" id="1_qq8dm"]
+[ext_resource type="AudioStream" uid="uid://be03sq7lbpqsq" path="res://assets/audio/ui/btn_focus.mp3" id="2_62ohn"]
+[ext_resource type="AudioStream" uid="uid://dv5vrxfw5vhtx" path="res://assets/audio/ui/btn_click.mp3" id="3_hdb7m"]
+
+[node name="UiButton" type="Button"]
+script = ExtResource("1_qq8dm")
+
+[node name="AudioFocusButton" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_62ohn")
+volume_db = -30.224
+
+[node name="AudioClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hdb7m")
+volume_db = -30.224
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgigiq48fe7qj"]
+
+[ext_resource type="Script" path="res://scripts/system/system_game_session.gd" id="1_4vxjs"]
+[ext_resource type="Script" path="res://scripts/system/system_cursor_3d.gd" id="2_r44wd"]
+[ext_resource type="PackedScene" uid="uid://d4b3rai8d4670" path="res://scenes/missions/mission_0.tscn" id="3_dy75w"]
+[ext_resource type="PackedScene" uid="uid://5g33gfmnxhl7" path="res://scenes/screens/modal_escape_menu.tscn" id="4_e0qm7"]
+[ext_resource type="PackedScene" uid="uid://c8a4opk1trodb" path="res://scenes/ui/ui_character.tscn" id="5_d22va"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_sjjuk"]
+radius = 0.1
+height = 0.05
+
+[node name="GameSession" type="Node" node_paths=PackedStringArray("_cursor_3d", "_character", "_main_camera")]
+script = ExtResource("1_4vxjs")
+_cursor_3d = NodePath("Cursor3D")
+_character = NodePath("Mission/Map/Characters/CharacterFate")
+_main_camera = NodePath("Mission/MainCamera")
+
+[node name="Cursor3D" type="Node3D" parent="."]
+script = ExtResource("2_r44wd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cursor3D"]
+mesh = SubResource("SphereMesh_sjjuk")
+
+[node name="Mission" parent="." instance=ExtResource("3_dy75w")]
+
+[node name="UiCharacter" parent="." instance=ExtResource("5_d22va")]
+
+[node name="EscapeMenu" parent="." instance=ExtResource("4_e0qm7")]
+
+[editable path="Mission"]
+[editable path="Mission/Map"]

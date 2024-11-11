@@ -1,0 +1,361 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "fieldConfig": {
+        "Status": {
+          "options": [
+            "InPlans",
+            "Todo",
+            "Refinement",
+            "InProgress",
+            "Done"
+          ],
+          "richText": false
+        }
+      },
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [],
+      "isDefault": true,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "Задачи",
+          "recursive": true
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {
+            "orderFields": [
+              "name",
+              "Priority",
+              "Status",
+              "ToWorkDate",
+              "path"
+            ],
+            "fieldConfig": {
+              "path": {
+                "hide": true
+              },
+              "Status": {
+                "width": 180,
+                "pinned": true
+              },
+              "name": {
+                "pinned": true
+              },
+              "Priority": {
+                "pinned": true
+              }
+            }
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": [
+              {
+                "field": "Priority",
+                "operator": "eq",
+                "enabled": false,
+                "value": "1"
+              }
+            ]
+          },
+          "colors": {
+            "conditions": [
+              {
+                "color": "#a882ff",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "InPlans"
+                }
+              },
+              {
+                "color": "#80aaff",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "InProgress"
+                }
+              },
+              {
+                "color": "#80ff8e",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "Done"
+                }
+              },
+              {
+                "color": "#ffd780",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "Todo"
+                }
+              },
+              {
+                "color": "#80fff0",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "Refinement"
+                }
+              }
+            ]
+          },
+          "sort": {
+            "criteria": [
+              {
+                "field": "Priority",
+                "order": "desc",
+                "enabled": true
+              },
+              {
+                "field": "ReadyToWork",
+                "order": "desc",
+                "enabled": true
+              },
+              {
+                "field": "Status",
+                "order": "desc",
+                "enabled": true
+              }
+            ]
+          },
+          "id": "14605ee5-6228-4576-878f-1f84279326d4",
+          "name": "Table",
+          "type": "table"
+        },
+        {
+          "config": {
+            "includeFields": [],
+            "groupByField": "Status",
+            "columns": {
+              "InPlans": {
+                "records": [
+                  "Задачи/Помещения.md"
+                ],
+                "weight": 0
+              },
+              "Todo": {
+                "records": [
+                  "Задачи/Квесты.md",
+                  "Задачи/ИИ.md",
+                  "Задачи/Статус эффекты.md",
+                  "Задачи/Диалоги.md",
+                  "Задачи/Интерактивность.md",
+                  "Задачи/Сохранения.md",
+                  "Задачи/Миссии.md"
+                ],
+                "weight": 1
+              },
+              "Refinement": {
+                "weight": 2,
+                "records": [
+                  "Задачи/Камера.md",
+                  "Задачи/Главное меню.md",
+                  "Задачи/Экран загрузки.md",
+                  "Задачи/Аттребуты.md",
+                  "Задачи/Способности.md",
+                  "Задачи/Контроллер управления.md",
+                  "Задачи/Персонаж - Главный герой.md"
+                ]
+              },
+              "InProgress": {
+                "records": [
+                  "Задачи/Меню настроек.md"
+                ],
+                "weight": 3
+              },
+              "Done": {
+                "records": [
+                  "Задачи/Главное меню.md",
+                  "Задачи/Локализация.md"
+                ],
+                "weight": 4
+              }
+            }
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": [
+              {
+                "color": "#88ff80",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "Done"
+                }
+              },
+              {
+                "color": "#ababab",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "InPlans"
+                }
+              },
+              {
+                "color": "#f0ff80",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "Todo"
+                }
+              },
+              {
+                "color": "#80d4ff",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "InProgress"
+                }
+              },
+              {
+                "color": "#ff8080",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "Refinement"
+                }
+              }
+            ]
+          },
+          "sort": {
+            "criteria": [
+              {
+                "field": "Priority",
+                "order": "desc",
+                "enabled": true
+              }
+            ]
+          },
+          "id": "39aaa5ad-6d8d-412e-b63d-80d1f4744118",
+          "name": "Board",
+          "type": "board"
+        },
+        {
+          "config": {
+            "interval": "month"
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": [
+              {
+                "color": "#c2c2c2",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "InPlans"
+                }
+              },
+              {
+                "color": "#6be269",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "Done"
+                }
+              },
+              {
+                "color": "#80c1ff",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "InProgress"
+                }
+              },
+              {
+                "color": "#f9f46c",
+                "condition": {
+                  "field": "Status",
+                  "operator": "is",
+                  "enabled": true,
+                  "value": "Todo"
+                }
+              }
+            ]
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "f7d8d92e-1101-4404-8277-b95571abd2a2",
+          "name": "Calendar",
+          "type": "calendar"
+        }
+      ],
+      "id": "d2f706b5-8d4a-4e75-8fb2-fa5def8ef5f8",
+      "name": "Tasks"
+    },
+    {
+      "fieldConfig": {},
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [],
+      "isDefault": false,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "Баги",
+          "recursive": true
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {},
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "098289d0-e3f6-4897-b0c6-d32b14d055d3",
+          "name": "Table",
+          "type": "table"
+        }
+      ],
+      "id": "220e8837-fe3e-4fa6-8711-2e8f7715cc42",
+      "name": "Bags"
+    }
+  ],
+  "archives": [],
+  "preferences": {
+    "projectSizeLimit": 1000,
+    "frontmatter": {
+      "quoteStrings": "PLAIN"
+    },
+    "locale": {
+      "firstDayOfWeek": "default"
+    },
+    "commands": [],
+    "linkBehavior": "open-editor"
+  }
+}

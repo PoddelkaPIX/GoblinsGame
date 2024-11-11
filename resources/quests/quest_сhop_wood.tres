@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://c5m68u58uewav"]
+
+[ext_resource type="Script" path="res://scripts/resources/data_quest_condition.gd" id="1_0t5s4"]
+[ext_resource type="Script" path="res://scripts/resources/data_quest.gd" id="1_423mb"]
+
+[sub_resource type="Resource" id="Resource_hikli"]
+
+[sub_resource type="Resource" id="Resource_ttwmm"]
+script = ExtResource("1_0t5s4")
+title = "Wood"
+type = SubResource("Resource_hikli")
+event_category = 0
+
+[resource]
+script = ExtResource("1_423mb")
+name = "Chop wood"
+description = ""
+quest_conditions = Array[ExtResource("1_0t5s4")]([SubResource("Resource_ttwmm")])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=2 format=3 uid="uid://d4fdjminjca37"]
+
+[ext_resource type="Script" path="res://scripts/resources/data_ability.gd" id="1_b2336"]
+
+[resource]
+script = ExtResource("1_b2336")
+_name = &"Switch stand"
+_description = ""
+cooldown_time = 0.2
+_enegry = 0.0
+_mana = 0.0

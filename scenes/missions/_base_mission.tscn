@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg2vki0s4udxp"]
+
+[ext_resource type="Script" path="res://scripts/system/system_mission.gd" id="1_rqlft"]
+[ext_resource type="Script" path="res://scripts/system/system_quest_manager.gd" id="2_av1u4"]
+[ext_resource type="PackedScene" uid="uid://d1xkn4bh2nrd5" path="res://scenes/system/system_main_camera.tscn" id="3_d5kq4"]
+[ext_resource type="Script" path="res://scripts/system/system_mission_finish_manager.gd" id="4_s83di"]
+
+[node name="BaseMission" type="Node"]
+script = ExtResource("1_rqlft")
+
+[node name="QuestManager" type="Node" parent="."]
+script = ExtResource("2_av1u4")
+
+[node name="MainCamera" parent="." instance=ExtResource("3_d5kq4")]
+
+[node name="MissionFinishManager" type="Node" parent="."]
+script = ExtResource("4_s83di")

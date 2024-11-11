@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "migrated": 6,
+    "iconPacksPath": ".obsidian/icons",
+    "fontSize": 16,
+    "emojiStyle": "native",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "LiHandshake",
+      "LiAsterisk",
+      "LiBone",
+      "LiGalleryHorizontalEnd",
+      "LiPointer"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false,
+    "iconInTitleEnabled": false,
+    "iconInTitlePosition": "above",
+    "iconInFrontmatterEnabled": true,
+    "iconInFrontmatterFieldName": "icon",
+    "iconColorInFrontmatterFieldName": "iconColor",
+    "iconsBackgroundCheckEnabled": false,
+    "iconsInNotesEnabled": true,
+    "iconsInLinksEnabled": true,
+    "iconIdentifier": ":",
+    "lucideIconPackType": "native",
+    "debugMode": false
+  },
+  "Баги": "⚠",
+  "Шаблоны": "LiBookTemplate",
+  "Игра": "LiGamepad2",
+  "Задачи/Программирование": "LiCode2",
+  "Задачи/Рисунки": "LiPaintbrush",
+  "Задачи/Звуки и музыка": "LiAudioLines",
+  "Задачи": "LiListTodo",
+  "Вложения": "LiFile",
+  "Задачи/Модели": "LiBox",
+  "Идеи": "LiAlertCircle",
+  "Идеи/Локации": "LiMapPin",
+  "Идеи/Персонажи": "LiPersonStanding",
+  "Идеи/Враги": "LiAngry",
+  "Идеи/Окружение": "LiPointer",
+  "Идеи/Сюжет": "LiGalleryHorizontalEnd",
+  "Идеи/Фишки": "LiHandshake"
+}

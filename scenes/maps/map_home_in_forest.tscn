@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://dowl7b5in52c1"]
+
+[ext_resource type="PackedScene" uid="uid://b3d6crl6772xm" path="res://scenes/maps/_base_map.tscn" id="1_ch1dp"]
+[ext_resource type="Texture2D" uid="uid://b8hyil4d5g0cw" path="res://assets/textures/kenney_prototype-textures/Green/texture_06.png" id="2_oe3yh"]
+[ext_resource type="Texture2D" uid="uid://c8pjblq1w42bj" path="res://assets/textures/kenney_prototype-textures/Orange/texture_06.png" id="3_ec0e4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7473s"]
+albedo_texture = ExtResource("3_ec0e4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s0xq"]
+albedo_texture = ExtResource("3_ec0e4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vhhq"]
+albedo_texture = ExtResource("3_ec0e4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p70sd"]
+albedo_texture = ExtResource("3_ec0e4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7g4sk"]
+albedo_texture = ExtResource("3_ec0e4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixri6"]
+albedo_texture = ExtResource("3_ec0e4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwi3n"]
+albedo_texture = ExtResource("3_ec0e4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ptll"]
+albedo_texture = ExtResource("3_ec0e4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvqqn"]
+albedo_texture = ExtResource("3_ec0e4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwx4y"]
+albedo_texture = ExtResource("2_oe3yh")
+uv1_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31by6"]
+
+[sub_resource type="Sky" id="Sky_0ghte"]
+sky_material = SubResource("ProceduralSkyMaterial_31by6")
+
+[sub_resource type="Environment" id="Environment_hvmwt"]
+background_mode = 2
+sky = SubResource("Sky_0ghte")
+ambient_light_source = 3
+ssr_enabled = true
+
+[node name="MapHomeInForest" instance=ExtResource("1_ch1dp")]
+
+[node name="House" type="Node3D" parent="Walls" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.466934, 0)
+
+[node name="Walls" type="Node3D" parent="Walls/House" index="0"]
+
+[node name="Wall" type="CSGBox3D" parent="Walls/House/Walls" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36615, 2.01848, 0.414124)
+material_override = SubResource("StandardMaterial3D_7473s")
+size = Vector3(3.7323, 3.11511, 0.171753)
+
+[node name="Wall3" type="CSGBox3D" parent="Walls/House/Walls" index="1"]
+transform = Transform3D(-0.0198083, 0, -0.999804, 0, 1, 0, 0.999804, 0, -0.0198083, -0.32962, 2.01848, -4.94201)
+material_override = SubResource("StandardMaterial3D_4s0xq")
+size = Vector3(10.5276, 3.11511, 0.171753)
+
+[node name="Wall7" type="CSGBox3D" parent="Walls/House/Walls" index="2"]
+transform = Transform3D(0.999804, 0, -0.0198082, 0, 1, 0, 0.0198082, 0, 0.999804, 6.74348, 2.01848, -10.0209)
+material_override = SubResource("StandardMaterial3D_8vhhq")
+size = Vector3(14.0064, 3.11511, 0.171753)
+
+[node name="Wall4" type="CSGBox3D" parent="Walls/House/Walls" index="3"]
+transform = Transform3D(-0.0198083, 0, -0.999804, 0, 1, 0, 0.999804, 0, -0.0198083, 8.59136, 2.01848, -2.3186)
+material_override = SubResource("StandardMaterial3D_p70sd")
+size = Vector3(5.27972, 3.11511, 0.171753)
+
+[node name="Wall6" type="CSGBox3D" parent="Walls/House/Walls" index="4"]
+transform = Transform3D(-0.0198083, 0, -0.999804, 0, 1, 0, 0.999804, 0, -0.0198083, 13.6327, 2.01848, -7.39766)
+material_override = SubResource("StandardMaterial3D_7g4sk")
+size = Vector3(5.09592, 3.11511, 0.171753)
+
+[node name="Wall2" type="CSGBox3D" parent="Walls/House/Walls" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76855, 2.01848, 0.414124)
+material_override = SubResource("StandardMaterial3D_ixri6")
+size = Vector3(3.7323, 3.11511, 0.171753)
+
+[node name="Wall5" type="CSGBox3D" parent="Walls/House/Walls" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1094, 2.01848, -4.88485)
+material_override = SubResource("StandardMaterial3D_bwi3n")
+size = Vector3(5.12213, 3.11511, 0.171753)
+
+[node name="Roof" type="Node3D" parent="Walls/House" index="1"]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Walls/House/Roof" index="0"]
+transform = Transform3D(1.00254, 0, 0, 0, 1.00254, 0, 0, 0, 11.5973, -0.326028, 3.46431, 0.939315)
+material_override = SubResource("StandardMaterial3D_1ptll")
+polygon = PackedVector2Array(-0.659724, -0.190472, 3.58334, 3.27346, 5.87555, 3.32798, 10.2336, 0.0678346)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Walls/House/Roof" index="1"]
+transform = Transform3D(-0.00536608, 0, -10.2756, 0, 1.00022, 0, 0.570398, 0, -0.0966694, 3.55135, 3.28401, -10.1811)
+material_override = SubResource("StandardMaterial3D_hvqqn")
+polygon = PackedVector2Array(-0.823751, 0.180567, 3.58334, 3.27346, 5.87555, 3.32798, 10.2336, 0.0678346)
+
+[node name="Floor" type="CSGBox3D" parent="Grounds" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19702, -0.527011, 0)
+material_override = SubResource("StandardMaterial3D_uwx4y")
+size = Vector3(100, 1, 100)
+
+[node name="WorldEnvironment" parent="." index="5"]
+environment = SubResource("Environment_hvmwt")
+
+[node name="DirectionalLight3D" parent="." index="6"]
+transform = Transform3D(-0.431438, -0.388989, -0.813971, -0.398629, -0.727203, 0.558812, -0.809294, 0.565565, 0.158681, -7.64823, 12, -17.4908)
+shadow_enabled = true
+shadow_blur = 2.788

@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dweb0imh4vrso"]
+
+[ext_resource type="PackedScene" uid="uid://b3d6crl6772xm" path="res://scenes/maps/_base_map.tscn" id="1_so1ck"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4lbbl"]
+size = Vector3(10, 5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5dd3b"]
+size = Vector3(1, 5, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q1xyp"]
+size = Vector2(10, 10)
+
+[sub_resource type="Environment" id="Environment_f5p35"]
+background_mode = 1
+background_color = Color(0.0295066, 0.0295065, 0.0295066, 1)
+glow_enabled = true
+glow_normalized = true
+
+[node name="Home" instance=ExtResource("1_so1ck")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45197, -5.00975)
+mesh = SubResource("BoxMesh_4lbbl")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45197, 4.84146)
+mesh = SubResource("BoxMesh_4lbbl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24097, 2.47909, 0.0288522)
+mesh = SubResource("BoxMesh_5dd3b")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Walls" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73961, 2.47909, 0.0288522)
+mesh = SubResource("BoxMesh_5dd3b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Grounds" index="0"]
+mesh = SubResource("PlaneMesh_q1xyp")
+skeleton = NodePath("../..")
+
+[node name="WorldEnvironment" parent="." index="6"]
+environment = SubResource("Environment_f5p35")
+
+[node name="DirectionalLight3D" parent="." index="7"]
+transform = Transform3D(-0.588319, -0.8061, 0.0638979, 0.064234, -0.125358, -0.99003, 0.806073, -0.57835, 0.125529, 8.13635, 4.25724, 0)
+layers = 0
+light_cull_mask = 4293918720
+
+[node name="MainCamera" parent="." index="10"]
+transform = Transform3D(0.802953, -0.2353, 0.547631, -0.0354896, 0.898276, 0.437997, -0.594985, -0.371126, 0.712923, 1.0209, 5.25648, 1.16466)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.15707, 0)
+omni_range = 14.6919

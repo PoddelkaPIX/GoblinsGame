@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu0dgqikfvlrh"]
+
+[ext_resource type="Script" path="res://scripts/autoload/autoload_router.gd" id="1_6n1y5"]
+
+[node name="Router" type="Node"]
+script = ExtResource("1_6n1y5")

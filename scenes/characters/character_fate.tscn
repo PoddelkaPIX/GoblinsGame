@@ -1,0 +1,331 @@
+[gd_scene load_steps=44 format=3 uid="uid://4w5y5eio260f"]
+
+[ext_resource type="PackedScene" uid="uid://3qcpl8l0xtfv" path="res://scenes/characters/_character_base.tscn" id="1_gvfud"]
+[ext_resource type="Script" path="res://scripts/system/system_attribute.gd" id="2_4517i"]
+[ext_resource type="Script" path="res://scripts/abilities/ability_fate_base_melee_attack.gd" id="3_hqopn"]
+[ext_resource type="Script" path="res://scenes/characters/state_character_fate_idle.gd" id="3_khf51"]
+[ext_resource type="Texture2D" uid="uid://do6d60od41vmg" path="res://addons/anthonyec.camera_preview/Pin.svg" id="4_52rp8"]
+[ext_resource type="Script" path="res://scripts/abilities/ability_fate_base_range_attack.gd" id="5_bgvm0"]
+[ext_resource type="Script" path="res://scenes/characters/state_character_fate_move.gd" id="5_nahbn"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_d2g7t"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/animation_tree_state.gd" id="7_dgit0"]
+[ext_resource type="PackedScene" uid="uid://dt6wvepf36lt0" path="res://assets/models/characters/fate_test.gltf" id="10_qswsh"]
+[ext_resource type="Script" path="res://scenes/characters/state_character_fate_ability_1.gd" id="11_00pv6"]
+[ext_resource type="Script" path="res://scenes/characters/state_character_fate_jump.gd" id="11_ewcjq"]
+[ext_resource type="Script" path="res://scripts/system/system_ability.gd" id="11_gxvi8"]
+
+[sub_resource type="Resource" id="Resource_4q8ig"]
+script = ExtResource("2_4517i")
+name = "HP"
+value = 1.0
+min_value = 0.0
+max_value = 1.0
+
+[sub_resource type="Resource" id="Resource_kh7vd"]
+script = ExtResource("2_4517i")
+name = "MoveSpeed"
+value = 150.0
+min_value = 0.0
+max_value = 255.0
+
+[sub_resource type="Resource" id="Resource_aqwx0"]
+script = ExtResource("2_4517i")
+name = "TurnSpeed"
+value = 10.0
+min_value = 0.0
+max_value = 10.0
+
+[sub_resource type="Resource" id="Resource_gemdh"]
+script = ExtResource("2_4517i")
+name = "Damage"
+value = 0.0
+min_value = 0.0
+max_value = 0.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lg02d"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l7t2u"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1q58c"]
+animation = &"interact"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3n231"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mbmxm"]
+animation = &"move_back"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ft2fw"]
+animation = &"move_forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_msurs"]
+animation = &"move_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2n4qx"]
+animation = &"move_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_l2aoe"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_mbmxm")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_ft2fw")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_msurs")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_2n4qx")
+blend_point_3/pos = Vector2(1, 0)
+sync = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h2gho"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e5ycj"]
+xfade_time = 0.1
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sqq0v"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hgf5m"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bksyr"]
+xfade_time = 0.2
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a6lc4"]
+xfade_time = 0.1
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ona0i"]
+xfade_time = 0.2
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t061x"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_al85h"]
+xfade_time = 0.2
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ylm0"]
+xfade_time = 0.1
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cl2ox"]
+xfade_time = 0.2
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i1f8m"]
+xfade_time = 0.1
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ocwq1"]
+xfade_time = 0.1
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x7xfb"]
+xfade_time = 0.1
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xswi4"]
+xfade_time = 0.1
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hea75"]
+states/ability_1/node = SubResource("AnimationNodeAnimation_lg02d")
+states/ability_1/position = Vector2(398, 207)
+states/idle/node = SubResource("AnimationNodeAnimation_l7t2u")
+states/idle/position = Vector2(334, 87)
+states/interact/node = SubResource("AnimationNodeAnimation_1q58c")
+states/interact/position = Vector2(627, 184)
+states/jump/node = SubResource("AnimationNodeAnimation_3n231")
+states/jump/position = Vector2(387, 6)
+states/move/node = SubResource("AnimationNodeBlendSpace2D_l2aoe")
+states/move/position = Vector2(595, 87)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_h2gho"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_e5ycj"), "move", "End", SubResource("AnimationNodeStateMachineTransition_sqq0v"), "ability_1", "idle", SubResource("AnimationNodeStateMachineTransition_hgf5m"), "idle", "ability_1", SubResource("AnimationNodeStateMachineTransition_bksyr"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_a6lc4"), "move", "ability_1", SubResource("AnimationNodeStateMachineTransition_ona0i"), "interact", "idle", SubResource("AnimationNodeStateMachineTransition_t061x"), "idle", "interact", SubResource("AnimationNodeStateMachineTransition_al85h"), "interact", "move", SubResource("AnimationNodeStateMachineTransition_2ylm0"), "move", "interact", SubResource("AnimationNodeStateMachineTransition_cl2ox"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_i1f8m"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_ocwq1"), "jump", "move", SubResource("AnimationNodeStateMachineTransition_x7xfb"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_xswi4")]
+graph_offset = Vector2(0, -12.1148)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pvvi0"]
+radius = 0.324693
+
+[node name="CharacterFate" instance=ExtResource("1_gvfud")]
+
+[node name="AbilityManager" parent="." index="0" node_paths=PackedStringArray("attribute_manager")]
+attribute_manager = NodePath("../AttributeManager")
+
+[node name="MeleeAttack" type="Node" parent="AbilityManager" index="0" groups=["FateAbility", "FateAbilityGroup_1"]]
+script = ExtResource("3_hqopn")
+_name = &"Melee attack"
+_icon = ExtResource("4_52rp8")
+_input_key_name = "ability_1"
+
+[node name="RangeAttack" type="Node" parent="AbilityManager" index="1" groups=["FateAbility", "FateAbilityGroup_2"]]
+script = ExtResource("5_bgvm0")
+_input_key_name = "ability_1"
+
+[node name="SwitchStand" type="Node" parent="AbilityManager" index="2" groups=["FateAbility", "FateAbilityGroup_1"]]
+script = ExtResource("11_gxvi8")
+_input_key_name = "ability_3"
+
+[node name="AttributeManager" parent="." index="1"]
+attributes = Array[ExtResource("2_4517i")]([SubResource("Resource_4q8ig"), SubResource("Resource_kh7vd"), SubResource("Resource_aqwx0"), SubResource("Resource_gemdh")])
+
+[node name="ToAbility1" type="Node" parent="StateChart/CompoundState/Idle" index="3"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Ability_1")
+event = &"ability_1"
+delay_in_seconds = "0.0"
+
+[node name="ToJump" type="Node" parent="StateChart/CompoundState/Idle" index="4"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Jump")
+event = &"jump"
+delay_in_seconds = "0.0"
+
+[node name="ToJump" type="Node" parent="StateChart/CompoundState/Move" index="3"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Jump")
+event = &"jump"
+delay_in_seconds = "0.0"
+
+[node name="ToAbility1" type="Node" parent="StateChart/CompoundState/Move" index="4"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Ability_1")
+event = &"ability_1"
+delay_in_seconds = "0.0"
+
+[node name="Ability_1" type="Node" parent="StateChart/CompoundState" index="4"]
+script = ExtResource("7_dgit0")
+animation_tree = NodePath("../../../AnimationTree")
+state_name = &"ability_1"
+
+[node name="ToMove" type="Node" parent="StateChart/CompoundState/Ability_1" index="0"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Move")
+event = &"move"
+delay_in_seconds = "0.0"
+
+[node name="ToIdle" type="Node" parent="StateChart/CompoundState/Ability_1" index="1"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Idle")
+event = &"idle"
+delay_in_seconds = "0.0"
+
+[node name="ToHit" type="Node" parent="StateChart/CompoundState/Ability_1" index="2"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Hit")
+event = &"hit"
+delay_in_seconds = "0.0"
+
+[node name="ToDeath" type="Node" parent="StateChart/CompoundState/Ability_1" index="3"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Death")
+event = &"death"
+delay_in_seconds = "0.0"
+
+[node name="Jump" type="Node" parent="StateChart/CompoundState" index="5"]
+script = ExtResource("7_dgit0")
+animation_tree = NodePath("../../../AnimationTree")
+state_name = &"jump"
+
+[node name="ToIdle" type="Node" parent="StateChart/CompoundState/Jump" index="0"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Idle")
+event = &"idle"
+delay_in_seconds = "0.0"
+
+[node name="ToMove" type="Node" parent="StateChart/CompoundState/Jump" index="1"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Move")
+event = &"move"
+delay_in_seconds = "0.0"
+
+[node name="ToDeath" type="Node" parent="StateChart/CompoundState/Jump" index="2"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Death")
+event = &"death"
+delay_in_seconds = "0.0"
+
+[node name="ToHit" type="Node" parent="StateChart/CompoundState/Jump" index="3"]
+script = ExtResource("6_d2g7t")
+to = NodePath("../../Hit")
+event = &"hit"
+delay_in_seconds = "0.0"
+
+[node name="AnimationTree" parent="." index="5"]
+root_node = NodePath("%AnimationTree/../blockbench_export")
+tree_root = SubResource("AnimationNodeStateMachine_hea75")
+anim_player = NodePath("../blockbench_export/AnimationPlayer")
+parameters/move/blend_position = Vector2(-0.0269192, -0.617021)
+
+[node name="blockbench_export" parent="." index="8" instance=ExtResource("10_qswsh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.0508462)
+
+[node name="Human" parent="blockbench_export/Node" index="0"]
+transform = Transform3D(0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, 0.173648, 0.015625, 0.375, -0.0625)
+
+[node name="HipL2" parent="blockbench_export/Node/Human" index="0"]
+transform = Transform3D(-0.0736715, 0.331302, 0.940644, 0.0571856, 0.943058, -0.327674, -0.995642, 0.029651, -0.0884222, -0.046875, -0.0390625, 0)
+
+[node name="LegL2" parent="blockbench_export/Node/Human/HipL2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, -0.1875, 0)
+
+[node name="HipR2" parent="blockbench_export/Node/Human" index="1"]
+transform = Transform3D(0.953717, -0.300706, 0, 0.300706, 0.953717, 0, 0, 0, 1, 0.0776502, -0.046875, 0.00542651)
+
+[node name="LegR2" parent="blockbench_export/Node/Human/HipR2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 0, -0.1875, 0)
+
+[node name="Body" parent="blockbench_export/Node/Human" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00394579, 0.0118192, 0.000695749)
+
+[node name="shoulderR2" parent="blockbench_export/Node/Human/Body" index="2"]
+transform = Transform3D(0.951736, -0.167731, -0.257029, 0.0771794, 0.94134, -0.328514, 0.297054, 0.292821, 0.908853, 0.114802, 0.210938, -0.0307752)
+
+[node name="armR2" parent="blockbench_export/Node/Human/Body/shoulderR2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, -0.1875, 0)
+
+[node name="Axe" parent="blockbench_export/Node/Human/Body/shoulderR2/armR2" index="1"]
+transform = Transform3D(0.451493, 0.741193, 0.496776, 0.0715691, -0.585041, 0.80784, 0.8894, -0.32918, -0.317188, -0.161506, -0.00972905, 0.0431034)
+
+[node name="shoulderL2" parent="blockbench_export/Node/Human/Body" index="3"]
+transform = Transform3D(0.924512, 0.31613, 0.212932, -0.367786, 0.886555, 0.28063, -0.100061, -0.337759, 0.935899, -0.114802, 0.242188, 0.0307752)
+
+[node name="armL2" parent="blockbench_export/Node/Human/Body/shoulderL2" index="1"]
+transform = Transform3D(0.79806, -0.393487, 0.456365, 0.369788, -0.278164, -0.8865, 0.475771, 0.876238, -0.0764848, 0, -0.1875, 0)
+
+[node name="Head" parent="blockbench_export/Node/Human" index="3"]
+transform = Transform3D(0.21644, 0, 0.976296, 0, 1, 0, -0.976296, 0, 0.21644, 0, 0.28125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_pvvi0")
+
+[node name="States" type="Node" parent="." index="10"]
+
+[node name="Idle" type="Node" parent="States" index="0"]
+script = ExtResource("3_khf51")
+
+[node name="Move" type="Node" parent="States" index="1"]
+script = ExtResource("5_nahbn")
+
+[node name="Ability_1" type="Node" parent="States" index="2"]
+script = ExtResource("11_00pv6")
+
+[node name="Jump" type="Node" parent="States" index="3"]
+script = ExtResource("11_ewcjq")
+
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Idle" to="States/Idle" method="_on_idle_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Move" to="States/Move" method="_on_move_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Ability_1" to="States/Ability_1" method="_on_ability_1_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Ability_1" to="States/Ability_1" method="_on_ability_1_state_exited"]
+[connection signal="state_entered" from="StateChart/CompoundState/Jump" to="States/Jump" method="_on_jump_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Jump" to="States/Jump" method="_on_jump_state_exited"]
+
+[editable path="blockbench_export"]

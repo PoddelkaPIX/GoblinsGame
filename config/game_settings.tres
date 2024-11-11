@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="GameSettings" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/data_game_settings.gd" id="1_u1bqd"]
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_o1tg4"]
+button_index = 1
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_72i5q"]
+button_index = 2
+
+[sub_resource type="InputEventKey" id="InputEventKey_krlm0"]
+device = -1
+keycode = 81
+unicode = 113
+
+[sub_resource type="InputEventKey" id="InputEventKey_hkyhj"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_txkmd"]
+device = -1
+keycode = 4194325
+
+[sub_resource type="InputEventKey" id="InputEventKey_kkao7"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_x58rw"]
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_dp8gm"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="InputEventKey" id="InputEventKey_qekjs"]
+device = -3
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_vqrmi"]
+device = -3
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_yqwhm"]
+device = -3
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_v8xle"]
+device = -3
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_xt4pd"]
+device = -3
+keycode = 87
+unicode = 119
+
+[resource]
+script = ExtResource("1_u1bqd")
+width = 1920
+height = 1080
+window_mode = 0
+graphics_quality = "High"
+total_volume = 0.41
+music_volume = 1.0
+effects_volume = 1.0
+audio = true
+music = false
+move_left_key = SubResource("InputEventKey_yqwhm")
+move_right_key = SubResource("InputEventKey_v8xle")
+move_up_key = SubResource("InputEventKey_xt4pd")
+move_down_key = SubResource("InputEventKey_vqrmi")
+jump_key = SubResource("InputEventKey_qekjs")
+gp_jump_key = SubResource("InputEventJoypadButton_x58rw")
+ability_1_key = SubResource("InputEventMouseButton_o1tg4")
+ability_2_key = SubResource("InputEventMouseButton_72i5q")
+ability_3_key = SubResource("InputEventKey_krlm0")
+ability_4_key = SubResource("InputEventKey_hkyhj")
+ability_5_key = SubResource("InputEventKey_txkmd")
+ability_6_key = SubResource("InputEventKey_kkao7")
+interaction_key = SubResource("InputEventKey_dp8gm")

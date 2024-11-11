@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://bbyhpqt36t4kx"]
+
+[ext_resource type="Script" path="res://scripts/resources/data_ability.gd" id="1_go7iq"]
+[ext_resource type="Texture2D" uid="uid://do6d60od41vmg" path="res://addons/anthonyec.camera_preview/Pin.svg" id="1_mqtir"]
+[ext_resource type="Script" path="res://scripts/resources/data_ability_type_active.gd" id="2_el3x0"]
+
+[sub_resource type="Resource" id="Resource_xcxkp"]
+script = ExtResource("2_el3x0")
+input_mode = 0
+is_cancelable = true
+preparation_time = 0.1
+execution_time = 0.01
+recovery_time = 0.1
+cancel_time = 0.2
+
+[resource]
+script = ExtResource("1_go7iq")
+_name = &"Melee attack"
+_description = ""
+_icon = ExtResource("1_mqtir")
+cooldown_time = 0.2
+_enegry = 0.0
+_mana = 0.0
+active_action = SubResource("Resource_xcxkp")

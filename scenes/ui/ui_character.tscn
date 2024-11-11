@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8a4opk1trodb"]
+
+[ext_resource type="Script" path="res://scenes/ui/ui_character.gd" id="1_w1et5"]
+[ext_resource type="PackedScene" uid="uid://d4d7dq5yvnsp4" path="res://scenes/ui/ui_ability_bar.tscn" id="2_uax2f"]
+
+[node name="UiCharacter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w1et5")
+
+[node name="AbilityBar" parent="." instance=ExtResource("2_uax2f")]
+unique_name_in_owner = true
+layout_mode = 1

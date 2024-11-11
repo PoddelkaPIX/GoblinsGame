@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://xdps6qgkxwwv"]
+
+[ext_resource type="PackedScene" uid="uid://b3d6crl6772xm" path="res://scenes/maps/_base_map.tscn" id="1_cmolm"]
+[ext_resource type="Texture2D" uid="uid://dr2gbyqxdgpb8" path="res://assets/textures/kenney_prototype-textures/Dark/texture_01.png" id="2_hewlk"]
+[ext_resource type="PackedScene" uid="uid://4w5y5eio260f" path="res://scenes/characters/character_fate.tscn" id="3_ha5ob"]
+[ext_resource type="PackedScene" uid="uid://b6ym2ejgtt7lw" path="res://scenes/characters/character_training_dummy.tscn" id="3_xkpge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31by6"]
+
+[sub_resource type="Sky" id="Sky_0ghte"]
+sky_material = SubResource("ProceduralSkyMaterial_31by6")
+
+[sub_resource type="Environment" id="Environment_u7xwb"]
+background_mode = 2
+sky = SubResource("Sky_0ghte")
+glow_normalized = true
+glow_intensity = 3.29
+glow_strength = 0.58
+glow_bloom = 1.0
+glow_hdr_threshold = 3.54
+glow_hdr_scale = 4.0
+glow_hdr_luminance_cap = 256.0
+glow_map_strength = 0.69
+fog_enabled = true
+fog_mode = 1
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_anisotropy = 0.77
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgywt"]
+albedo_texture = ExtResource("2_hewlk")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_31xhc"]
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ujjjm"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[node name="TestRoom" node_paths=PackedStringArray("main_character") instance=ExtResource("1_cmolm")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+main_character = NodePath("Characters/CharacterFate")
+
+[node name="Characters" parent="." index="4"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="TrainingDummy" parent="Characters" index="0" instance=ExtResource("3_xkpge")]
+transform = Transform3D(-0.998378, 0, 0.0569368, 0, 1, 0, -0.0569368, 0, -0.998378, 0, 0, -1.93125)
+
+[node name="TrainingDummy2" parent="Characters" index="1" instance=ExtResource("3_xkpge")]
+transform = Transform3D(-0.966048, 0, 0.258364, 0, 1, 0, -0.258364, 0, -0.966048, -3.62432, 0.0531155, -1.78072)
+
+[node name="CharacterFate" parent="Characters" index="2" instance=ExtResource("3_ha5ob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.35641)
+
+[node name="WorldEnvironment" parent="." index="6"]
+environment = SubResource("Environment_u7xwb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="7"]
+material_override = SubResource("StandardMaterial3D_fgywt")
+mesh = SubResource("PlaneMesh_31xhc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_ujjjm")
+
+[node name="DirectionalLight3D" parent="." index="8"]
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_normal_bias = 5.0
+shadow_opacity = 0.5
+directional_shadow_blend_splits = true
+
+[node name="MainCamera" parent="." index="11"]
+transform = Transform3D(0.707107, 0.683013, -0.183013, 0, 0.258819, 0.965926, 0.707107, -0.683013, 0.183013, -4.19459, 3.73778, 4.19459)
