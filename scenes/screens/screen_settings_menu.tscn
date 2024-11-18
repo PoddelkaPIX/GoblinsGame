@@ -34,77 +34,99 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Container" type="PanelContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Main" type="MarginContainer" parent="HBoxContainer/Container"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/Container/Main"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Container/Main"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/Container/Main/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="Back" parent="HBoxContainer/Container/Main/VBoxContainer" instance=ExtResource("2_6q7yq")]
+[node name="GAME" parent="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer" instance=ExtResource("2_6q7yq")]
 unique_name_in_owner = true
-layout_mode = 2
-focus_neighbor_left = NodePath("../VIDEO")
-focus_neighbor_top = NodePath(".")
-focus_neighbor_bottom = NodePath(".")
-text = "BACK"
-
-[node name="SOUND" parent="HBoxContainer/Container/Main/VBoxContainer" instance=ExtResource("2_6q7yq")]
-unique_name_in_owner = true
-layout_mode = 2
-text = "SOUND"
-
-[node name="VIDEO" parent="HBoxContainer/Container/Main/VBoxContainer" instance=ExtResource("2_6q7yq")]
-unique_name_in_owner = true
-layout_mode = 2
-focus_neighbor_right = NodePath("../Back")
-text = "VIDEO"
-
-[node name="Views" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+focus_neighbor_left = NodePath("../---")
+text = "GAME"
 
-[node name="VideoSettingsView" type="MarginContainer" parent="HBoxContainer/Views"]
+[node name="SOUND" parent="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer" instance=ExtResource("2_6q7yq")]
 unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SOUND"
+
+[node name="VIDEO" parent="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer" instance=ExtResource("2_6q7yq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VIDEO"
+
+[node name="CONTROL" parent="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer" instance=ExtResource("2_6q7yq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CONTROL"
+
+[node name="---" parent="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer" instance=ExtResource("2_6q7yq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_right = NodePath("../GAME")
+text = "---"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Views" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="VideoSettingsView" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Views"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("2_pbvf8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Views/VideoSettingsView"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Views/VideoSettingsView"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Views/VideoSettingsView/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Views/VideoSettingsView/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ScreenMode" type="HBoxContainer" parent="HBoxContainer/Views/VideoSettingsView/VBoxContainer/MarginContainer"]
+[node name="ScreenMode" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Views/VideoSettingsView/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/Views/VideoSettingsView/VBoxContainer/MarginContainer/ScreenMode"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Views/VideoSettingsView/VBoxContainer/MarginContainer/ScreenMode"]
 layout_mode = 2
 text = "screen mode"
 
-[node name="OptionButton" type="OptionButton" parent="HBoxContainer/Views/VideoSettingsView/VBoxContainer/MarginContainer/ScreenMode"]
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainer/Views/VideoSettingsView/VBoxContainer/MarginContainer/ScreenMode"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SoundSettingsView" type="MarginContainer" parent="HBoxContainer/Views"]
+[node name="SoundSettingsView" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Views"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
@@ -115,10 +137,10 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("3_rwela")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Views/SoundSettingsView"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView"]
 layout_mode = 2
 
-[node name="TotalVolume" type="MarginContainer" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer"]
+[node name="TotalVolume" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 10
@@ -126,14 +148,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBox" type="HBoxContainer" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/TotalVolume"]
+[node name="HBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/TotalVolume"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/TotalVolume/HBox"]
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/TotalVolume/HBox"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/TotalVolume/HBox/Control"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/TotalVolume/HBox/Control"]
 layout_mode = 2
 offset_left = 4.0
 offset_top = 4.0
@@ -141,24 +163,24 @@ offset_right = 81.0
 offset_bottom = 29.0
 text = "TOTAL_VOLUME"
 
-[node name="SliderComponent" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/TotalVolume/HBox" instance=ExtResource("4_rkho7")]
+[node name="SliderComponent" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/TotalVolume/HBox" instance=ExtResource("4_rkho7")]
 layout_mode = 2
 
-[node name="MusicVolume" type="MarginContainer" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer"]
+[node name="MusicVolume" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBox" type="HBoxContainer" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicVolume"]
+[node name="HBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicVolume"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicVolume/HBox"]
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicVolume/HBox"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicVolume/HBox/Control"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicVolume/HBox/Control"]
 layout_mode = 2
 offset_left = 4.0
 offset_top = 4.0
@@ -166,24 +188,24 @@ offset_right = 89.0
 offset_bottom = 29.0
 text = "MUSIC_VOLUME"
 
-[node name="SliderComponent" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicVolume/HBox" instance=ExtResource("4_rkho7")]
+[node name="SliderComponent" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicVolume/HBox" instance=ExtResource("4_rkho7")]
 layout_mode = 2
 
-[node name="MusicFlag" type="MarginContainer" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer"]
+[node name="MusicFlag" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBox" type="HBoxContainer" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicFlag"]
+[node name="HBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicFlag"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicFlag/HBox"]
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicFlag/HBox"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicFlag/HBox/Control"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicFlag/HBox/Control"]
 layout_mode = 2
 offset_left = 4.0
 offset_top = 4.0
@@ -191,24 +213,24 @@ offset_right = 89.0
 offset_bottom = 29.0
 text = "MUSIC"
 
-[node name="CheckButton" type="CheckButton" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicFlag/HBox"]
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/MusicFlag/HBox"]
 layout_mode = 2
 
-[node name="AudioFlag" type="MarginContainer" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer"]
+[node name="AudioFlag" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBox" type="HBoxContainer" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/AudioFlag"]
+[node name="HBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/AudioFlag"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/AudioFlag/HBox"]
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/AudioFlag/HBox"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/AudioFlag/HBox/Control"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/AudioFlag/HBox/Control"]
 layout_mode = 2
 offset_left = 4.0
 offset_top = 4.0
@@ -216,9 +238,19 @@ offset_right = 89.0
 offset_bottom = 29.0
 text = "AUDIO"
 
-[node name="CheckButton" type="CheckButton" parent="HBoxContainer/Views/SoundSettingsView/VBoxContainer/AudioFlag/HBox"]
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/VBoxContainer/Views/SoundSettingsView/VBoxContainer/AudioFlag/HBox"]
 layout_mode = 2
 
-[connection signal="pressed" from="HBoxContainer/Container/Main/VBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="HBoxContainer/Container/Main/VBoxContainer/SOUND" to="." method="_on_sound_pressed"]
-[connection signal="pressed" from="HBoxContainer/Container/Main/VBoxContainer/VIDEO" to="." method="_on_video_pressed"]
+[node name="Back" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_6q7yq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+focus_neighbor_bottom = NodePath("../../Container/Main/HBoxContainer/VBoxContainer/GAME")
+text = "[ESC] BACK"
+
+[connection signal="pressed" from="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer/GAME" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer/SOUND" to="." method="_on_sound_pressed"]
+[connection signal="pressed" from="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer/VIDEO" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer/CONTROL" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="HBoxContainer/Container/Main/HBoxContainer/VBoxContainer/---" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

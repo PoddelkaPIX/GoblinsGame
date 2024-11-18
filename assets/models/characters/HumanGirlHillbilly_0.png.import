@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://botcy7pk5a1s1"
+path.s3tc="res://.godot/imported/HumanGirlHillbilly_0.png-6c7b4cc729c85175b1578051429774f5.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "acabc3aec0e55138686eb8b69eeb2068"
+}
+
+[deps]
+
+source_file="res://assets/models/characters/HumanGirlHillbilly_0.png"
+dest_files=["res://.godot/imported/HumanGirlHillbilly_0.png-6c7b4cc729c85175b1578051429774f5.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "LiHandshake",
-      "LiAsterisk",
-      "LiBone",
-      "LiGalleryHorizontalEnd",
-      "LiPointer"
+      "LiListMinus",
+      "LiHandCoins",
+      "LiGamepad2",
+      "FabDev",
+      "LiMove"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -26,7 +26,7 @@
     "iconInFrontmatterEnabled": true,
     "iconInFrontmatterFieldName": "icon",
     "iconColorInFrontmatterFieldName": "iconColor",
-    "iconsBackgroundCheckEnabled": false,
+    "iconsBackgroundCheckEnabled": true,
     "iconsInNotesEnabled": true,
     "iconsInLinksEnabled": true,
     "iconIdentifier": ":",
@@ -48,5 +48,14 @@
   "Идеи/Враги": "LiAngry",
   "Идеи/Окружение": "LiPointer",
   "Идеи/Сюжет": "LiGalleryHorizontalEnd",
-  "Идеи/Фишки": "LiHandshake"
+  "Идеи/Фишки": "LiHandshake",
+  "Идеи/Лор": "LiTimerReset",
+  "02.Продвижение/Ютуб": "SiYoutube",
+  "02.Продвижение/Itch.io": "FabItchIo",
+  "02.Продвижение/ВК": "SiVk",
+  "02.Продвижение/Дзен": "LiBadge",
+  "02.Продвижение": "LiMove",
+  "01.Разработка": "FabDev",
+  "03.Монетезация": "LiHandCoins",
+  "07.Сводки": "LiListMinus"
 }

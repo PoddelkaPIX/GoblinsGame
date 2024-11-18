@@ -1,9 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://xdps6qgkxwwv"]
+[gd_scene load_steps=15 format=3 uid="uid://xdps6qgkxwwv"]
 
 [ext_resource type="PackedScene" uid="uid://b3d6crl6772xm" path="res://scenes/maps/_base_map.tscn" id="1_cmolm"]
 [ext_resource type="Texture2D" uid="uid://dr2gbyqxdgpb8" path="res://assets/textures/kenney_prototype-textures/Dark/texture_01.png" id="2_hewlk"]
 [ext_resource type="PackedScene" uid="uid://4w5y5eio260f" path="res://scenes/characters/character_fate.tscn" id="3_ha5ob"]
 [ext_resource type="PackedScene" uid="uid://b6ym2ejgtt7lw" path="res://scenes/characters/character_training_dummy.tscn" id="3_xkpge"]
+[ext_resource type="PackedScene" uid="uid://bdqfljetqwdpl" path="res://assets/models/characters/HumanGirlHillbilly.gltf" id="5_12eii"]
+[ext_resource type="PackedScene" uid="uid://c8h83d2xqs6a2" path="res://assets/models/characters/HumanGirl-2.gltf" id="5_qsbwy"]
+[ext_resource type="PackedScene" uid="uid://dt6wvepf36lt0" path="res://assets/models/characters/fate_test.gltf" id="7_4cyy7"]
+[ext_resource type="PackedScene" uid="uid://b4klfkw7248pt" path="res://assets/models/characters/HumanGirlHillbilly-2.gltf" id="8_1ntyu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31by6"]
 
@@ -75,3 +79,29 @@ directional_shadow_blend_splits = true
 
 [node name="MainCamera" parent="." index="11"]
 transform = Transform3D(0.707107, 0.683013, -0.183013, 0, 0.258819, 0.965926, 0.707107, -0.683013, 0.183013, -4.19459, 3.73778, 4.19459)
+
+[node name="blockbench_export2" parent="." index="12" instance=ExtResource("5_qsbwy")]
+transform = Transform3D(-0.806021, 0, 0.591886, 0, 1, 0, -0.591886, 0, -0.806021, 0.638304, 3.13312e-05, -2.20547)
+
+[node name="blockbench_export" parent="." index="13" instance=ExtResource("5_12eii")]
+transform = Transform3D(-0.979251, 0, 0.202651, 0, 1, 0, -0.202651, 0, -0.979251, -0.314418, 5.96046e-08, -3.12086)
+
+[node name="blockbench_export3" parent="." index="14" instance=ExtResource("7_4cyy7")]
+transform = Transform3D(1.41421, 0, -1.41421, 0, 2, 0, 1.41421, 0, 1.41421, -0.0104945, 0, -2.79305)
+
+[node name="blockbench_export4" parent="." index="15" instance=ExtResource("8_1ntyu")]
+transform = Transform3D(-0.453928, 0, 0.891038, 0, 1, 0, -0.891038, 0, -0.453928, 1.44721, 0, -0.404578)
+
+[node name="RukaR" parent="blockbench_export4/Node/HumanGirl/Chest" index="3"]
+transform = Transform3D(0.991445, -0.130526, 0, 0.130526, 0.991445, 0, 0, 0, 1, 0.1875, 0.109375, -0.046875)
+
+[node name="LokotR" parent="blockbench_export4/Node/HumanGirl/Chest/RukaR" index="1"]
+transform = Transform3D(0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0, 0, 1, 0, -0.234375, -0.0078125)
+
+[node name="RukaL" parent="blockbench_export4/Node/HumanGirl/Chest" index="4"]
+transform = Transform3D(0.991445, 0.130526, 0, -0.130526, 0.991445, 0, 0, 0, 1, -0.1875, 0.109375, -0.046875)
+
+[node name="LokotL" parent="blockbench_export4/Node/HumanGirl/Chest/RukaL" index="1"]
+transform = Transform3D(0.996195, -0.0871557, 0, 0.0871557, 0.996195, 0, 0, 0, 1, 0, -0.234375, -0.0078125)
+
+[editable path="blockbench_export4"]
