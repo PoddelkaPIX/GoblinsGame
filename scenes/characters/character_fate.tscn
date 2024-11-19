@@ -283,7 +283,7 @@ transform = Transform3D(0.953717, -0.300706, 0, 0.300706, 0.953717, 0, 0, 0, 1, 
 transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 0, -0.1875, 0)
 
 [node name="Body" parent="blockbench_export/Node/Human" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00394579, 0.0118192, 0.000695749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000768448, 0.0085928, 0.000135498)
 
 [node name="shoulderR2" parent="blockbench_export/Node/Human/Body" index="2"]
 transform = Transform3D(0.951736, -0.167731, -0.257029, 0.0771794, 0.94134, -0.328514, 0.297054, 0.292821, 0.908853, 0.114802, 0.210938, -0.0307752)

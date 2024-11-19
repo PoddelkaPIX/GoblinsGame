@@ -167,3 +167,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.198428, 0)
 visible = false
 light_specular = 10.0
 omni_range = 0.79554
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]

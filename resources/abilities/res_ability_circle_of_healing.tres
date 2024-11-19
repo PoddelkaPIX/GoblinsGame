@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=2 format=3 uid="uid://dkqwlvdbhtqd1"]
+
+[ext_resource type="Script" path="res://scripts/resources/data_ability.gd" id="1_dttkv"]
+
+[resource]
+script = ExtResource("1_dttkv")
+_name = &"Circle of healing"
+_description = ""
+cooldown_time = 0.2
+_enegry = 0.0
+_mana = 0.0
+metadata/_custom_type_script = ExtResource("1_dttkv")

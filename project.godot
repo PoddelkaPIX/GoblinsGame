@@ -32,7 +32,7 @@ GameSettingsStore="*res://scripts/autoload/autoload_game_settings_store.gd"
 Router="*res://scripts/autoload/autoload_router.gd"
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
-InputController="res://addons/input_controller/input_controller.gd"
+InputController="*res://addons/input_controller/input_controller.gd"
 
 [display]
 
