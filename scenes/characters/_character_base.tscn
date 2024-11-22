@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://3qcpl8l0xtfv"]
+[gd_scene load_steps=16 format=3 uid="uid://3qcpl8l0xtfv"]
 
 [ext_resource type="Script" path="res://scripts/system/system_ability_manager.gd" id="1_lvqtx"]
 [ext_resource type="Script" path="res://scripts/system/system_character.gd" id="1_xxpcn"]
 [ext_resource type="Script" path="res://scripts/system/system_attribute_manager.gd" id="2_c4tpm"]
 [ext_resource type="Script" path="res://scripts/system/system_status_effect_manager.gd" id="3_lyog1"]
 [ext_resource type="Script" path="res://scripts/system/system_attribute.gd" id="4_lidky"]
-[ext_resource type="Script" path="res://scripts/system/system_character_movement.gd" id="5_3tpia"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="7_ntgwr"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="8_bfus3"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_tree_state.gd" id="9_080gh"]
@@ -61,11 +60,6 @@ attributes = Array[ExtResource("4_lidky")]([SubResource("Resource_4q8ig"), SubRe
 [node name="StatusEffectManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_lyog1")
-
-[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("attribute_manager")]
-unique_name_in_owner = true
-script = ExtResource("5_3tpia")
-attribute_manager = NodePath("../AttributeManager")
 
 [node name="StateChart" type="Node" parent="."]
 unique_name_in_owner = true
@@ -161,11 +155,5 @@ shape = SubResource("CylinderShape3D_g5cmu")
 transform = Transform3D(-8.74228e-09, 0.2, -8.74228e-09, 0, -8.74228e-09, -0.2, -0.2, -8.74228e-09, 3.82137e-16, 0, 0.01, 0)
 offset = Vector2(80, -95)
 texture = ExtResource("11_gab2f")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.198428, 0)
-visible = false
-light_specular = 10.0
-omni_range = 0.79554
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8e1v7xdhaqvm"]
+
+[ext_resource type="Script" path="res://scenes/abilities/ability_movement.gd" id="1_a86gm"]
+[ext_resource type="Script" path="res://scripts/system/system_ability.gd" id="1_x1s4a"]
+
+[node name="AbilityMovement" type="Node"]
+script = ExtResource("1_a86gm")
+metadata/_custom_type_script = ExtResource("1_x1s4a")

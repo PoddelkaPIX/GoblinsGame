@@ -92,16 +92,25 @@ transform = Transform3D(1.41421, 0, -1.41421, 0, 2, 0, 1.41421, 0, 1.41421, -0.0
 [node name="blockbench_export4" parent="." index="15" instance=ExtResource("8_1ntyu")]
 transform = Transform3D(-0.453928, 0, 0.891038, 0, 1, 0, -0.891038, 0, -0.453928, 1.44721, 0, -0.404578)
 
+[node name="Jivot" parent="blockbench_export4/Node/HumanGirl" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1.07393, -0.21644, 0, 0.238084, 0.976296, 0.00176759, -0.295588, -0.03125)
+
+[node name="Head" parent="blockbench_export4/Node/HumanGirl" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.953717, -0.300706, 0, 0.300706, 0.953717, 0, 0.03125, 0.15625)
+
+[node name="Chest" parent="blockbench_export4/Node/HumanGirl" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, -0.380356, 0, 0.422618, 0.815677, 0, -0.1875, 0.09375)
+
 [node name="RukaR" parent="blockbench_export4/Node/HumanGirl/Chest" index="3"]
-transform = Transform3D(0.991445, -0.130526, 0, 0.130526, 0.991445, 0, 0, 0, 1, 0.1875, 0.109375, -0.046875)
+transform = Transform3D(0.887011, -0.230874, -0.399886, 0.399886, -0.0489258, 0.915258, -0.230874, -0.971753, 0.0489258, 0.1875, 0.109375, -0.046875)
 
 [node name="LokotR" parent="blockbench_export4/Node/HumanGirl/Chest/RukaR" index="1"]
-transform = Transform3D(0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0, 0, 1, 0, -0.234375, -0.0078125)
+transform = Transform3D(1, 0, 0, 0, 0.0436193, -0.999048, 0, 0.999048, 0.0436193, 0, -0.234375, -0.0078125)
 
 [node name="RukaL" parent="blockbench_export4/Node/HumanGirl/Chest" index="4"]
-transform = Transform3D(0.991445, 0.130526, 0, -0.130526, 0.991445, 0, 0, 0, 1, -0.1875, 0.109375, -0.046875)
+transform = Transform3D(0.866026, 0.5, 0, -0.433013, 0.75, 0.5, 0.25, -0.433013, 0.866025, -0.1875, 0.109375, -0.046875)
 
 [node name="LokotL" parent="blockbench_export4/Node/HumanGirl/Chest/RukaL" index="1"]
-transform = Transform3D(0.996195, -0.0871557, 0, 0.0871557, 0.996195, 0, 0, 0, 1, 0, -0.234375, -0.0078125)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, -0.234375, -0.0078125)
 
 [editable path="blockbench_export4"]

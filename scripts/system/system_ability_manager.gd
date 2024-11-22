@@ -4,39 +4,38 @@ class_name AbilityManager extends Node
 @export_category("Managers")
 @export var attribute_manager: AttributeManager
 @export var status_effect_manager: StatusEffectManager
-
-# FIXME: Запретить возможность активации навака, если один такой уже включон. 
+@export var _abilities: Dictionary[String, Ability]
 
 var is_disabled = false
 
-@export var ability_group_names: Array[StringName] = []
-@export var currnet_ability_group_name: StringName
+enum Event {
+	Ability1KeyPressed,
+	Ability1KeyReleased,
+	Ability2KeyPressed,
+	Ability2KeyReleased,
+	Ability3KeyPressed,
+	Ability3KeyReleased,
+}
 
-func _ready() -> void:
-	InputController.input_detected.connect(_on_input_detected)
+func triggered(key:  String):
+	var ability = _abilities[key]
+	if ability == null: return
+	
+	if has_mana(ability) == false: return
+	
+	var ability_state = ability.get_state()
+	
 
-	for ability in get_tree().get_nodes_in_group('Ability'):
-		ability.attribute_manager = attribute_manager
-		ability.status_effect_manager = status_effect_manager
-
-func _on_input_detected(event, action, input_type):
-	pass
-
-#func send_input_event(key):
-	#if not key in input_keys.keys(): return
-	#
-	#if key == 'cancel':
-		#_cancel_ability(input_keys[key])
-	#else: 
-		#_activate_ability(input_keys[key])
-
-#func _cancel_ability(ability: Ability):
-	#ability.cancel()
-#
-#func _activate_ability(ability: Ability):
-	#ability.activate()
-
-#func _process(delta):
-	#for ability in abilities:
-		#if ability == null: continue
-		#ability.update(delta)
+#region Условия
+func has_mana(ability: Ability) -> bool:
+	var mana: Attribute = attribute_manager.get_attribute('Mana')
+	if mana and mana.value - ability.get_mana() >= 0:
+		return true
+	return false
+	
+#func has_energy() -> bool:
+	#var energy: Attribute = attribute_manager.get_attribute('Energy')
+	#if energy and energy.value - _enegry >= 0:
+		#return true
+	#return false
+#endregion

@@ -1,5 +1,7 @@
 class_name Ability extends Node
 signal canceled
+signal state_executed()
+signal state_stoped()
 
 signal state_ready_entered()
 signal state_ready_exited()
@@ -11,7 +13,10 @@ signal state_recovery_entered()
 signal state_recovery_exited()
 signal state_cooldown_entered()
 signal state_cooldown_exited()
-	
+
+signal mana_spent(value: float)
+signal energy_spent(value: float)
+
 enum EInputMode { ONE_PRESS, HOLD_PRESS }
 
 const STATE_READY = 'READY' 
@@ -21,7 +26,6 @@ const STATE_RECOVERY = 'RECOVERY'
 const STATE_COOLDOWN = 'PREPARATION' 
 
 @export_category('Ability')
-@export var _name: StringName = ''
 @export_multiline var _description: String = ''
 @export var _icon: CompressedTexture2D
 
@@ -35,26 +39,33 @@ const STATE_COOLDOWN = 'PREPARATION'
 @export_category('Input')
 @export var _input_mode: EInputMode = EInputMode.ONE_PRESS
 @export var _is_cancelable: bool = true
-@export var _input_key_name: String = 'ability_'
 @export_category('Timings')
 @export var _preparation_time: float = 0.1
 @export var _execution_time: float = 0.01
 @export var _recovery_time: float = 0.1
 @export var _cancel_time: float = 0.2
-
+@export_category('Additionally')
+@export var active_action: AbilityActionActive
+@export var passive_action: AbilityActionPassive
 var attribute_manager: AttributeManager
 var status_effect_manager: StatusEffectManager
 
-var _current_state = STATE_READY
+var _current_state: String = STATE_READY
 var _state_timer: float = 0.0
 
-func activate():
-	if not has_mana(): return
-	if not has_energy(): return
+func triggered():
+	match get_state():
+		Ability.STATE_READY:
+			execute()
+
+func execute():
 	if not _current_state == STATE_READY: return
 	
 	_current_state = STATE_PREPARATION
 
+func stop():
+	pass
+	
 func set_state(new_state):
 	if new_state == _current_state: return
 	_current_state = new_state
@@ -67,6 +78,9 @@ func set_state(new_state):
 			state_recovery_entered.emit()
 		STATE_COOLDOWN:
 			state_cooldown_entered.emit()
+
+func  get_state():
+	return _current_state
 
 func cancel():
 	if _current_state == STATE_PREPARATION:
@@ -112,16 +126,8 @@ func use_passive_effect():
 func _update(delta):
 	pass
 
-#region Условия
-func has_mana() -> bool:
-	var mana: Attribute = attribute_manager.get_attribute('Mana')
-	if mana and mana.value - _mana >= 0:
-		return true
-	return false
-	
-func has_energy() -> bool:
-	var energy: Attribute = attribute_manager.get_attribute('Energy')
-	if energy and energy.value - _enegry >= 0:
-		return true
-	return false
-#endregion
+func _execute():
+	pass
+
+func  get_mana() -> float:
+	return _mana
